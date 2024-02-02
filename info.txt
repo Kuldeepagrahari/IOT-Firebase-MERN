@@ -1,0 +1,6 @@
+data directory
+C:\Program Files\MongoDB\Server\7.0\data\
+log directory
+
+C:\Program Files\MongoDB\Server\7.0\log\
+port; 27017

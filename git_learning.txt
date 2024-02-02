@@ -1,0 +1,1 @@
+add 1s before .com in the repo url to open the repo in vs as editor

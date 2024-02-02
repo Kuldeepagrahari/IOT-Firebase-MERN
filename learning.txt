@@ -1,0 +1,50 @@
+db.user.find()
+db.user.findOne()
+ db.user.find({branch:"ece"})
+ Note: You cannot use both 0 and 1 in the same object. 
+ The only
+  exception is the _id field. 
+  You should either specify the
+   fields you would like to include 
+   or the fields you would like to
+    exclude.
+ex:db.posts.find({}, {title: 1, date: 0})
+
+ db.user.find({},{name:1}) --> to see name field only
+
+The updateOne() method will update the first document 
+that is found matching the provided query.
+db.user.updateOne({name:"sam"},{$set:{branch:"cse"}})
+
+db.posts.updateMany({}, { $inc: { likes: 1 } })
+
+operators
+https://www.w3schools.com/mongodb/mongodb_query_operators.php
+$eq: Values are equal
+$ne: Values are not equal
+$gt: Value is greater than another value
+$gte: Value is greater than or equal to another value
+$lt: Value is less than another value
+$lte: Value is less than or equal to another value
+$in: Value is matched within an array
+$and: Returns documents where both queries match
+$or: Returns documents where either query matches
+$nor: Returns documents where both queries fail to match
+$not: Returns documents where the query does not match
+$regex: Allows the use of regular expressions when evaluating field values
+$text: Performs a text search
+$where: Uses a JavaScript expression to match documents
+
+to see collection in structured way
+db. COLLECTION_NAME.find().pretty()
+
+ db.stud.find({rno:{$gt:0,$lt:5}})
+
+ db.stud.find().skip(5)
+Returns all documents except first 5 documents
+
+db.stud.find().limit(2)
+Returns only first 2 documents
+
+db.stud.find({ rno: { $gt:5} } ).skip(5)
+Returns all documents except first 5 documents whose rno is greater than 5
