@@ -48,3 +48,23 @@ Returns only first 2 documents
 
 db.stud.find({ rno: { $gt:5} } ).skip(5)
 Returns all documents except first 5 documents whose rno is greater than 5
+
+
+
+importing csv/json
+./mongoimport --db t
+est --collection employee2  --type csv --fields name,emp_id  --f
+ile "C:\Users\Kuldeep Agrahari\Downloads\employee.csv"
+
+promise:
+Pending: Initial State, before the event has happened.
+Resolved: After the operation completed successfully.
+Rejected: If the operation had error during execution, the promise fails.
+example:
+mngs
+  .connect("mongodb://localhost:27017/student")
+  .then(() => console.log("connection success.."))
+  .catch((err) => console.log(err));
+
+  await:
+   The ‘await’ keyword, exclusive to async functions, pauses execution until the awaited promise resolves or rejects.
