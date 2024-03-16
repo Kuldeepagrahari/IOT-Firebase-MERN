@@ -1,0 +1,1 @@
+create (x: student{name: "sam", branch:"ece"}), (y: student{name: "kuldeep", branch:"cse"}),(z: student{name: "prateek", branch:"cse"}),(c1: course{name:"N0SQL",dept:"cse"}),(c2: course{name:"java",dept:"cse"}),(c3: course{name:"circuits",dept:"ece"})  return x,y,z,c1,c2,c3

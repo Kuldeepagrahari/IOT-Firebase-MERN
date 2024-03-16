@@ -1,17 +1,56 @@
 const mngs = require("mongoose");
+const validator = require ( "validator");
 mngs
   .connect("mongodb://localhost:27017/student")
   .then(() => console.log("connection success.."))
   .catch((err) => console.log(err));
 
-/* The code `const marksheetSchema = new mngs.Schema({ ... })` is creating a Mongoose schema for a
-collection called "marksheet" in the MongoDB database. */
+
 const marksheetSchema = new mngs.Schema({
-  name: String,
-  branch: String,
+  name: {
+    type:String,
+    required: true,
+    unique:true,
+    lowercase:true,
+    trim : true,
+    minlength: [3, "min 3 letters"]
+
+  },
+  branch: {
+    type: String,
+    required: true,
+    enum : ["cse", "ece" , "me" , "sm"]
+  },
+
+  email:
+  { 
+    type: String,
+    required:true,
+    unique: true,
+    validate(val){
+      if ( !validator.isEmail(val) ){
+        throw new Error("Email is invalid ")
+      }
+    }
+
+
+  },
   marks: [
-    { sub: String, mark: Number },
-    { sub: String, mark: Number },
+    { sub: String, mark:{type:Number,
+    validate (val){
+      if (val < 0 ){
+        throw new console.error("marks can not be negative");
+      }
+    }} },
+    { sub: String, mark:{
+      type: Number ,
+      validate:{
+        validator: function (val ){
+          return val.length < 0
+        },
+        message : "marks can not be neg"
+      }
+    }},
   ],
   DOB: {
     type: Date,
@@ -23,40 +62,27 @@ const marksheetSchema = new mngs.Schema({
 const Marksheet = mngs.model("marksheet", marksheetSchema);
 
 //create documents
-// const createDoc = async ()=>{
-//   try{
-//     const stud1 = new Marksheet({
-//       name: "prateek",
-//       branch: "cse",
-//       marks: [
-//         { sub: "os", mark: 99 },
-//         { sub: "cn", mark: 91 },
-//       ],
-//     })
-//     const stud2 = new Marksheet({
-//       name: "sahil",
-//       branch: "cse",
-//       marks: [
-//         { sub: "os", mark: 100 },
-//         { sub: "cn", mark: 99 },
-//       ],
-//     })
-//     const stud3 = new Marksheet({
-//       name: "abhishek",
-//       branch: "cse",
-//       marks: [
-//         { sub: "os", mark: 100 },
-//         { sub: "cn", mark: 100 },
-//       ],
-//     })
-//     const result =await Marksheet.insertMany([stud1,stud2,stud3]);
-//     console.log(result)
-//   }
-//   catch(err){
-//     console.log(err);
-//   }
-// }
-// createDoc()
+const createDoc = async ()=>{
+  try{
+    
+    const stud3 = new Marksheet({
+      name: "abhishek",
+      branch: "cse",
+      email:"some",
+      marks: [
+        { sub: "os", mark: 100 },
+        { sub: "cn", mark: 100 },
+      ],
+    })
+    const result =await Marksheet.insertMany([stud3]);
+    console.log(result)
+  }
+  catch(err){
+    console.log(err);
+    
+  }
+}
+createDoc()
 
 // find
 
@@ -120,13 +146,25 @@ const Marksheet = mngs.model("marksheet", marksheetSchema);
 //     console.log(err)
 //   }
 // }
-const deleteDoc = async ()=>{
-  try{
-        const result = await Marksheet.findByIdAndDelete({_id:"65e888b0b2ac3889c2544141"})
-        console.log(result)
-  }
-  catch(err){
-    console.log(err)
-  }
-}
-deleteDoc()
+// const deleteDoc = async ()=>{
+//   try{
+//         const result = await Marksheet.findByIdAndDelete({_id:"65e888b0b2ac3889c2544141"})
+//         console.log(result)
+//   }
+//   catch(err){
+//     console.log(err)
+//   }
+// }
+// deleteDoc()
+//  const updateDoc = async ()=>{
+//   try{
+//       const result =await Marksheet.updateMany({name:"sam"},{$set : {
+//         branch:"ece"
+//       }})
+//       console.log(result)
+//   }
+//   catch(err){
+//     console.log(err)
+//   }
+//  }
+//  updateDoc()
