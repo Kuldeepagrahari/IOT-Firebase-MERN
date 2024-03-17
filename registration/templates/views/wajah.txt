@@ -1,0 +1,3 @@
+view engine
+all the frontend pages will be in this folder
+so index.html in the public folder is not required

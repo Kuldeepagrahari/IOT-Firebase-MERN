@@ -1,0 +1,72 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="C:\Users\Kuldeep Agrahari\Desktop\mongo\registration\templates\views\style.css">
+    <style>
+        body {
+    background-color: gold;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     
+    /*Replace 'background.jpg' with your background image */
+    background-size: cover;
+    filter: blur(5px);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+}
+
+    </style>
+</head>
+<body>
+   <div> {{>navbar}}</div>
+    <div>
+    <div class="background"></div>
+    <div class="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is a cool website with awesome animations!</p>
+    </div></div>
+</body>
+</html>

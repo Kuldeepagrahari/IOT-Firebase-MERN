@@ -1,0 +1,5 @@
+hame package.json me jakar 
+"dev": "nodemon src/app.js -e js,hbs"
+ -e js,hbs 
+ // extension
+ add krna padega jisse nodemon js ke sath sath hbs files me changes ko bhi track kr paye
