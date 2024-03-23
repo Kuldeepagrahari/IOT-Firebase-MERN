@@ -1,3 +1,172 @@
-h1{
-    color: rgb(100, 9, 237);
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+    background-color: rgb(244, 5, 5);
+    padding:5px 10px;
+    border-radius: 20px;
+}
+
+
+
+nav ul li a {
+    color: #f9bbbb;
+    text-decoration: none;
+}
+
+
+nav {
+    /* background-color: white;/
+     */
+     background: transparent;
+    color: #f60c0c;
+    height:5vh;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 10px;
+    transition: all 0.3s ease; /* Add transition for smooth animation */
+}
+
+
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color:transparent;
+    border-radius: 8px;
+    height:50vh;
+    
+}
+
+button{
+    background-color: rgb(251, 52, 17);
+    height: 7vh;
+    border-radius: 30px;
+    width:30vw;
+    font-weight: bolder;
+    border: none;
+}
+h1 {
+    text-align: center;
+    color: rgb(98, 9, 253);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    /* display: block; */
+    font-weight: bold;
+    color: rgb(251, 52, 17);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background:none;
+    color:black;
+    box-sizing: border-box;
+
+
+    
+}
+input{
+    height:5vh;
+    width:30vw;
+    color:black;
+    
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #8a2be2; /* Darker shade of blueviolet on hover */
+}
+
+.link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link a {
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+#reg-page {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    background-image: url("https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZvb2R8ZW58MHx8MHx8fDA%3D");
+    background-repeat: no-repeat;
+    width:100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+}
+.container{
+    margin-top: 10vh;
+    height:80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50vw;
+    border: 2px rgb(251,52,17) solid;
+}
+header{
+    margin-bottom: 90vh;
+    position: absolute;
+    background-color: rgb(127, 123, 123);
+    width: 100vw;
+    opacity: 0.6;
+    /* position: sticky; */
+}
+.login-container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 10vh; */
+    padding: 10vh;
+}
+.login-container form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh;
 }

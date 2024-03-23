@@ -4,9 +4,12 @@ const express = require("express");
 // step:p1
 const path = require("path")
 
+const Users = require("./models/register")
+
 // req to use partials in our express app
 // UsingPartials:1
-const hbs = require("hbs")
+const hbs = require("hbs");
+const { log } = require("console");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -40,6 +43,10 @@ app.set("views", views_path)
 // UsingPartials: 2
 hbs.registerPartials(partials_path)
 
+// to using form data
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
 
 app.get("/", (req,res) => {
     //  res.send("hello from the sam")
@@ -47,7 +54,51 @@ app.get("/", (req,res) => {
     res.render("index")
 
 })
+app.get("/register", (req,res) => {
+    res.render ("register")
+})
+app.get("/login", (req,res) => {
+    res.render("login")
+})
 
+app.post("/register", async(req,res) => {
+    try{
+       const pass = req.body.password;
+       const cpass = req.body.confirmPassword;
+       if ( cpass == pass ){
+    //   res.send( `<h1>you have successfully registered</h1>`)
+      const doc = new Users({
+        name:req.body.name,
+        mobile:req.body.mobile,
+        email:req.body.email,
+        address:req.body.address,
+        password:req.body.password,
+        confirmPassword:req.body.confirmPassword
+        
+
+      })
+    
+
+      const saveddoc = await doc.save()
+      res.status(201).render("index")
+}
+     else {
+        
+        console.log("not")
+        res.send(`<div><center><h2>passwords are not matching</h1></center></div>`)
+       
+     }
+
+       
+
+    }
+    catch(err){
+        console.log(req.body.email)
+        res.status(400).send(err);
+        console.log(err)
+    }
+   
+})
 app.listen( port, ()=>{
     console.log(`success....at port: ${port}`)
 
