@@ -6,6 +6,9 @@ const path = require("path")
 
 const Users = require("./models/register")
 
+// login ke liye
+const bcrypt = require("bcryptjs")
+
 // req to use partials in our express app
 // UsingPartials:1
 const hbs = require("hbs");
@@ -62,6 +65,8 @@ app.get("/login", (req,res) => {
 })
 
 app.post("/register", async(req,res) => {
+    console.log
+    (req.body.email)
     try{
        const pass = req.body.password;
        const cpass = req.body.confirmPassword;
@@ -98,6 +103,30 @@ app.post("/register", async(req,res) => {
         console.log(err)
     }
    
+})
+
+app.post("/login", async(req,res) => {
+    try{
+        const email = req.body.username
+        const pass = req.body.password
+        // promise
+        const dbres = await Users.findOne({email:email})
+        console.log(pass + dbres.password)
+        // promise return krta h
+        const isMatch = await bcrypt.compare(pass, dbres.password)
+        console.log(isMatch)
+           if ( isMatch === true){
+            res.status(201).render("index")
+           }
+           else {
+            console.log("pass")
+            res.send("invalid credentials")
+           }
+       
+       
+    }catch(err){
+          res.status(400).send(err)
+    }
 })
 app.listen( port, ()=>{
     console.log(`success....at port: ${port}`)

@@ -1,0 +1,3 @@
+it is a hashing technique -> it req 159 days to decode(highest among all hashing technique)
+hashing is different from encryption as encryption encrypt the pass to another string and can be easily decode within a scond
+npm i  bcrypt.js

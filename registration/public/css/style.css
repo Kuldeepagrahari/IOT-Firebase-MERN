@@ -19,6 +19,7 @@ nav ul li {
     background-color: rgb(244, 5, 5);
     padding:5px 10px;
     border-radius: 20px;
+
 }
 
 
@@ -64,7 +65,7 @@ button{
 }
 h1 {
     text-align: center;
-    color: rgb(98, 9, 253);
+    color: rgb(253, 82, 9);
 }
 
 .form-group {
@@ -83,7 +84,8 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
     background:none;
-    color:black;
+    color:rgb(223, 9, 9);
+    
     box-sizing: border-box;
 
 
@@ -147,12 +149,12 @@ input{
     margin-left: 50vw;
     border: 2px rgb(251,52,17) solid;
 }
-header{
+header {
     margin-bottom: 90vh;
     position: absolute;
-    background-color: rgb(127, 123, 123);
+    background-color: rgb(245, 238, 228);
     width: 100vw;
-    opacity: 0.6;
+    /* opacity: 0.9; */
     /* position: sticky; */
 }
 .login-container{
@@ -162,6 +164,8 @@ header{
     justify-content: center;
     /* margin-top: 10vh; */
     padding: 10vh;
+    /* width: 50vw; */
+    /* background-color: gold; */
 }
 .login-container form{
     display:flex;
@@ -169,4 +173,16 @@ header{
     align-items: center;
     justify-content: center;
     padding: 5vh;
+}
+.login-container input{
+    margin-bottom: 5vh;
+    background-color: #fff;
+    color: white;
+}
+.login-container label{
+    color:white;
+}
+button:hover{
+    transform: scale(1.02);
+    background-color: orange;
 }

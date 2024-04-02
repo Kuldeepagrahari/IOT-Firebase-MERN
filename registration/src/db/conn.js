@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 // connecting to students-api db
-mongoose.connect("mongodb://localhost:27017/thapa-reg").then(()=>{
+mongoose.connect("mongodb://localhost:27017/registrations").then(()=>{
     console.log("connection is successful..")
 })
 .catch((err)=>{
